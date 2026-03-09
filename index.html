@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rahul Dekar | Data Analyst Portfolio</title>
+  <meta name="description" content="Rahul Dekar - Data Analyst | Power BI Developer portfolio showcasing dashboards, publications, experience, resume, and contact details." />
+  <style>
+    :root {
+      --bg: #08101f;
+      --bg-soft: #0e1830;
+      --surface: rgba(15, 23, 42, 0.7);
+      --surface-2: rgba(255, 255, 255, 0.06);
+      --card: rgba(255, 255, 255, 0.08);
+      --text: #eef4ff;
+      --muted: #a7b3cc;
+      --line: rgba(255, 255, 255, 0.12);
+      --primary: #5b8cff;
+      --primary-2: #16c7b7;
+      --accent: #8b5cf6;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+      --radius: 24px;
+      --radius-sm: 16px;
+      --max: 1200px;
+    }
+
+    body.light {
+      --bg: #f5f8ff;
+      --bg-soft: #ffffff;
+      --surface: rgba(255, 255, 255, 0.88);
+      --surface-2: rgba(15, 23, 42, 0.04);
+      --card: rgba(15, 23, 42, 0.03);
+      --text: #0c1630;
+      --muted: #5e6d8c;
+      --line: rgba(15, 23, 42, 0.1);
+      --primary: #4f46e5;
+      --primary-2: #0891b2;
+      --accent: #7c3aed;
+      --shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(91, 140, 255, 0.18), transparent 30%),
+        radial-gradient(circle at top right, rgba(22, 199, 183, 0.14), transparent 30%),
+        linear-gradient(135deg, var(--bg), #060c18 55%, var(--bg-soft));
+      transition: background .25s ease, color .25s ease;
+    }
+    body.light {
+      background:
+        radial-gradient(circle at top left, rgba(79, 70, 229, 0.08), transparent 32%),
+        radial-gradient(circle at top right, rgba(8, 145, 178, 0.08), transparent 30%),
+        linear-gradient(135deg, #f8fbff, #eef4ff 55%, #ffffff);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .glass {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(16px);
+      background: rgba(6, 12, 24, 0.65);
+      border-bottom: 1px solid var(--line);
+    }
+    body.light .navbar { background: rgba(255, 255, 255, 0.76); }
+
+    .nav-wrap {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: .2px;
+    }
+
+    .brand-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      box-shadow: var(--shadow);
+    }
+
+    .brand small {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+      transition: .2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .theme-btn,
+    .menu-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: var(--surface-2);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .menu-btn { display: none; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 18px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      font-weight: 800;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-secondary {
+      border-color: var(--line);
+      background: var(--surface-2);
+      color: var(--text);
+    }
+
+    .btn-full { width: 100%; }
+
+    section { padding: 88px 0; }
+
+    .hero {
+      padding-top: 52px;
+      min-height: calc(100vh - 76px);
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--surface-2);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(42px, 6vw, 74px);
+      line-height: .98;
+      letter-spacing: -1.8px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--primary), var(--primary-2), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lead {
+      margin: 0 0 28px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.8;
+      max-width: 720px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .stat {
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .stat h3 {
+      margin: 0 0 6px;
+      font-size: 28px;
+    }
+
+    .stat p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .hero-card { padding: 26px; }
+
+    .hero-card-top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 20px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 22px;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+    }
+
+    .hero-card h3 { margin: 0 0 4px; }
+    .muted { color: var(--muted); }
+
+    .pill-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px 0 22px;
+    }
+
+    .pill {
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--surface-2);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .hero-contact {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .hero-contact a,
+    .hero-contact div {
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: var(--surface-2);
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .section-head {
+      margin-bottom: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .section-head h2 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4vw, 42px);
+      letter-spacing: -1px;
+    }
+
+    .section-head p {
+      margin: 0;
+      max-width: 760px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+    }
+
+    .card {
+      padding: 28px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 14px;
+      font-size: 24px;
+    }
+
+    .card p {
+      color: var(--muted);
+      line-height: 1.85;
+      margin: 0;
+    }
+
+    .info-list,
+    .skill-grid,
+    .cert-grid,
+    .pub-grid,
+    .github-grid,
+    .contact-list,
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .info-item,
+    .skill-box,
+    .cert-item,
+    .pub-item,
+    .github-card,
+    .contact-item,
+    .timeline-item {
+      padding: 16px 18px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: var(--surface-2);
+    }
+
+    .info-item strong,
+    .contact-item strong,
+    .timeline-item strong,
+    .pub-item strong,
+    .cert-item strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .skill-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .skill-box {
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .timeline-item small,
+    .small {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .project-card {
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-thumb {
+  aspect-ratio: 16 / 10;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(135deg, rgba(91, 140, 255, 0.12), rgba(22, 199, 183, 0.10));
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+
+.project-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+    .project-body { padding: 22px; }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .project-top h3 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .tag {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--surface-2);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .project-body p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .meta-chip {
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--surface-2);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .three-col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .resume-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      padding: 28px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 18px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      flex-shrink: 0;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: var(--surface-2);
+      color: var(--text);
+      font: inherit;
+      outline: none;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    footer {
+      padding: 28px 0 46px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .footer-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .two-col,
+      .projects-grid,
+      .three-col,
+      .contact-grid,
+      .row {
+        grid-template-columns: 1fr;
+      }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 820px) {
+      .menu-btn { display: inline-grid; place-items: center; }
+      .nav-links {
+        position: absolute;
+        top: 76px;
+        left: 16px;
+        right: 16px;
+        display: none;
+        flex-direction: column;
+        align-items: start;
+        padding: 16px;
+        background: var(--bg-soft);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+      }
+      .nav-links.open { display: flex; }
+      .hero { min-height: auto; }
+      .stats,
+      .skill-grid,
+      .three-col,
+      .projects-grid { grid-template-columns: 1fr; }
+      .resume-card { flex-direction: column; align-items: start; }
+    }
+	
+	.contact-form-box {
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form-box h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #0f172a;
+}
+
+.contact-form-box p {
+  color: #64748b;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 16px 18px;
+  border: 1px solid #dbe2ea;
+  border-radius: 14px;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s ease;
+  background: #f8fafc;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #4f46e5;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
+}
+
+.send-btn {
+  border: none;
+  padding: 16px 20px;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  background: linear-gradient(90deg, #4f46e5, #0ea5e9);
+  transition: 0.3s ease;
+}
+
+.send-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(79, 70, 229, 0.25);
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-wrap">
+      <a href="#home" class="brand">
+        <span class="brand-badge">RD</span>
+        <span>
+          Rahul Dekar
+          <small>Data Analyst | Power BI Developer</small>
+        </span>
+      </a>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">🌙</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Open to Remote Global Opportunities</span>
+          <h1>Turning raw data into <span class="gradient-text">clear business insights</span> with Power BI.</h1>
+          <p class="lead">
+            I'm Rahul Dekar, a Data Analyst and Power BI Developer from Lucknow, India. I build interactive dashboards, KPI-driven reports, and business-friendly visual stories using Power BI, SQL, Excel, DAX, and Power Query. My goal is simple: transform complex data into reporting that decision-makers can trust and act on.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">View Power BI Projects</a>
+            <a class="btn btn-secondary" href="#contact">Hire Me / Contact</a>
+            <a class="btn btn-secondary" href="#resume">Download Resume</a>
+          </div>
+          <div class="stats">
+            <div class="stat glass">
+              <h3>6</h3>
+              <p>Publications, <b>3 Power BI books</b> showcasing practical BI knowledge and <b>3 Books on AI Prompt Engineering</b></p>
+            </div>
+            <div class="stat glass">
+              <h3>6+</h3>
+              <p>Years of professional experience in performance-focused roles</p>
+            </div>
+            <div class="stat glass">
+              <h3>5</h3>
+              <p>Portfolio-ready dashboard sections designed for recruiter review</p>
+            </div>
+            <div class="stat glass">
+              <h3>Power BI</h3>
+              <p>Core focus on DAX, Power Query, Excel reporting, and dashboard UX</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card glass">
+          <div class="hero-card-top">
+            <div class="avatar"><img src="assets/images/rd.JPG"></div>
+            <div>
+              <h3>Rahul Dekar</h3>
+              <div class="muted">Data Analyst | Power BI Developer</div>
+            </div>
+          </div>
+
+          <p class="muted" style="line-height:1.8; margin:0;">
+            Detail-oriented analyst with expertise in Power BI, SQL, Excel, and data visualization. Known for structured problem-solving, analytical thinking, and presenting business data in a clear, decision-ready format.
+          </p>
+
+          <div class="pill-grid">
+            <span class="pill">Power BI</span>
+            <span class="pill">DAX</span>
+            <span class="pill">Power Query</span>
+            <span class="pill">Excel</span>
+            <span class="pill">SQL</span>
+            <span class="pill">Data Modeling</span>
+            <span class="pill">KPI Reporting</span>
+            <span class="pill">Dashboard Storytelling</span>
+          </div>
+
+          <div class="hero-contact">
+            <a href="mailto:dekar.rahul@gmail.com">dekar.rahul@gmail.com</a>
+            <div>+91-9616379558</div>
+            <a href="https://www.linkedin.com/in/rahul-dekar" target="_blank" rel="noreferrer">linkedin.com/in/rahul-dekar</a>
+            <a href="https://rahuldekar.github.io" target="_blank" rel="noreferrer">rahuldekar.github.io</a>
+          </div>
+
+          <a class="btn btn-primary btn-full" href="#resume">Download Resume PDF</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>About Me</h2>
+            <p>
+              I'm Data Analyst, Power BI Developer, reporting, and remote business intelligence expert. I help businesses turning their raw data into clear business insights.
+            </p>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="card glass">
+            <h3>Professional Summary</h3>
+            <p>
+              I am a detail-oriented Data Analyst with expertise in Power BI, SQL, Excel, and data visualization. I have experience converting raw datasets into structured insights and interactive dashboards that support reliable business intelligence reporting. My work is driven by strong analytical thinking, attention to detail, and structured problem-solving. I enjoy presenting complex information in a simple business-friendly format and building reporting solutions that improve productivity and operational performance.
+            </p>
+            <div class="info-list" style="margin-top:18px;">
+              <div class="info-item"><strong>What I do</strong>Build dashboards, KPI reports, and interactive business intelligence solutions using Power BI, Excel, DAX, Power Query, and SQL.</div>
+              <div class="info-item"><strong>How I work</strong>Start with business questions, clean and structure the data, define the right KPIs, and design dashboards that non-technical stakeholders can use with confidence.</div>
+              <div class="info-item"><strong>What makes me different</strong>Along with practical dashboard work, I am also the author of <b>3 Power BI books</b> and <b>3 AI Prompt Engineering books</b>, which reflects both technical depth and the ability to communicate analytics clearly.</div>
+            </div>
+          </div>
+
+          <div class="card glass" id="skills">
+            <h3>Core Skills</h3>
+            <div class="skill-grid">
+              <div class="skill-box">Power BI Dashboarding</div>
+              <div class="skill-box">DAX Measures</div>
+              <div class="skill-box">Power Query / ETL</div>
+              <div class="skill-box">Excel Reporting</div>
+              <div class="skill-box">SQL</div>
+              <div class="skill-box">Data Modeling</div>
+              <div class="skill-box">KPI Reporting</div>
+              <div class="skill-box">Trend Analysis</div>
+              <div class="skill-box">Business Insights</div>
+              <div class="skill-box">Data Cleaning</div>
+              <div class="skill-box">Dashboard Storytelling</div>
+              <div class="skill-box">GitHub Portfolio</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Experience & Certifications</h2>
+            <p>
+              My professional background combines business performance exposure with strong reporting discipline. This gives me an edge when building dashboards that are not just visual, but actually useful for managers and decision-makers.
+            </p>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="card glass">
+            <h3>Professional Experience</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <strong>LIC of India — Development Officer</strong>
+                <small>Lucknow, India | Dec 2019 – Jan 2026</small>
+                <p style="margin-top:10px;">
+                  Worked in a performance-driven role where I monitored sales and business data, prepared structured Excel reports, analyzed customer and revenue trends, and supported better business decisions through data-backed reporting. I also led and mentored a team of advisors while maintaining performance tracking systems and dashboard-style reporting processes.
+                </p>
+              </div>
+              <div class="timeline-item">
+                <strong>Key Contributions</strong>
+                <p>
+                  • Monitored sales and business performance data to track productivity and revenue trends.<br>
+                  • Created structured reports using Excel for management review and performance tracking.<br>
+                  • Analyzed customer and sales patterns to identify growth opportunities.<br>
+                  • Maintained performance dashboards and reporting systems.<br>
+                  • Led and mentored a team with a focus on productivity and operational improvement.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card glass">
+            <h3>Certifications</h3>
+            <div class="cert-grid">
+              <div class="cert-item"><strong>Analysing and Visualizing Data with Microsoft Power BI</strong><span class="small">Microsoft — Apr 2025</span></div>
+              <div class="cert-item"><strong>Data Visualization with Power BI</strong><span class="small">Great Learning — Apr 2025</span></div>
+              <div class="cert-item"><strong>Data Visualisation: Empowering Business with Effective Insights</strong><span class="small">Tata Group / Forage — Apr 2025</span></div>
+              <div class="cert-item"><strong>Power BI Certification Course</strong><span class="small">DataFlair — Apr 2025</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Featured Power BI Projects</h2>
+            
+          </div>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card glass">
+            <div class="project-thumb">
+              <img src="assets/images/Financial Analysis Dashboard.jpg" alt="Financial Analysis Dashboard screenshot placeholder" />
+            </div>
+            <div class="project-body">
+              <div class="project-top">
+                <h3>Financial Analysis Dashboard</h3>
+                <span class="tag">Power BI</span>
+              </div>
+              <p>
+                A dynamic finance dashboard built to track budgets, expense patterns, category-wise breakdowns, and trend-based performance reporting. Designed to help decision-makers quickly compare actuals against targets and identify cost behavior through clean interactive visuals.
+              </p>
+              <div class="project-meta">
+                <span class="meta-chip">Budget vs Actual</span>
+                <span class="meta-chip">Expense Breakdown</span>
+                <span class="meta-chip">Trend Analysis</span>
+              </div>
+              <div class="project-actions">
+                <a class="btn btn-primary" href="assets/pbix/Financial Analysis Dashboard.pbix">PBIX Download</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card glass">
+            <div class="project-thumb">
+              <img src="assets/images/HR Analytics Dashboard.jpg" alt="HR Analytics Dashboard screenshot placeholder" />
+            </div>
+            <div class="project-body">
+              <div class="project-top">
+                <h3>HR Analytics Dashboard</h3>
+                <span class="tag">Power BI</span>
+              </div>
+              <p>
+                An HR reporting dashboard focused on headcount trends, diversity insights, and department-wise attrition analysis. The dashboard uses interactive slicers and clean visuals to make workforce data easier to understand and act upon.
+              </p>
+              <div class="project-meta">
+                <span class="meta-chip">Headcount Trends</span>
+                <span class="meta-chip">Attrition Insights</span>
+                <span class="meta-chip">Diversity Analysis</span>
+              </div>
+              <div class="project-actions">
+                <a class="btn btn-primary" href="assets/pbix/HR Analytics Dashboard.pbix">PBIX Download</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card glass">
+            <div class="project-thumb">
+              <img src="assets/images/Inventory Management Dashboard.jpg" alt="Inventory Management Dashboard screenshot placeholder" />
+            </div>
+            <div class="project-body">
+              <div class="project-top">
+                <h3>Inventory Management Dashboard</h3>
+                <span class="tag">Power BI</span>
+              </div>
+              <p>
+                A dashboard designed to monitor inventory distribution using category-wise, product-level, and warehouse-level analysis. It supports better stock visibility and operational control through structured reporting and intuitive visuals.
+              </p>
+              <div class="project-meta">
+                <span class="meta-chip">Category Analysis</span>
+                <span class="meta-chip">Warehouse Tracking</span>
+                <span class="meta-chip">Stock Visibility</span>
+              </div>
+              <div class="project-actions">
+                <a class="btn btn-primary" href="assets/pbix/Inventory Management Dashboard.pbix">PBIX Download</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card glass">
+            <div class="project-thumb">
+              <img src="assets/images/Sales Dashboard.jpg" alt="Sales Performance Dashboard screenshot placeholder" />
+            </div>
+            <div class="project-body">
+              <div class="project-top">
+                <h3>Sales Performance Dashboard</h3>
+                <span class="tag">Power BI</span>
+              </div>
+              <p>
+                A recruiter-friendly showcase dashboard inspired by real business performance monitoring experience. It highlights revenue trends, productivity patterns, regional comparisons, and top-performing segments using clean KPI cards and interactive filters.
+              </p>
+              <div class="project-meta">
+                <span class="meta-chip">Revenue Trends</span>
+                <span class="meta-chip">Productivity KPIs</span>
+                <span class="meta-chip">Performance Tracking</span>
+              </div>
+              <div class="project-actions">
+                <a class="btn btn-primary" href="assets/pbix/Sales Dashboard.pbix">PBIX Download</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card glass">
+            <div class="project-thumb">
+              <img src="assets/images/Customer Analysis Dashboard.jpg" alt="Customer Analysis Dashboard" />
+            </div>
+            <div class="project-body">
+              <div class="project-top">
+                <h3>Customer Analysis Dashboard</h3>
+                <span class="tag">Power BI</span>
+              </div>
+              <p>
+			This dashboard provides a comprehensive overview of customer purchasing behavior. It highlights key metrics such as Total Customers, Average Purchase per Customer, and Total Purchase Amount. The dashboard also displays Top 10 customers by purchase value, sales performance by quarter, monthly purchase trends, and customer distribution by product category. Interactive filters allow users to analyze customer data by region and country, helping businesses identify high-value customers, track sales patterns, and support data-driven decision making.
+              </p>
+              <div class="project-meta">
+                <span class="meta-chip">Top 10 Customers</span>
+                <span class="meta-chip">Track Sales Patterns</span>
+                <span class="meta-chip">Data-driven Decision Making</span>
+              </div>
+              <div class="project-actions">
+                <a class="btn btn-primary" href="assets/pbix/CustomerAnalysisDashboard.pbix">PBIX Download</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Publications & Education</h2>
+            <p>
+              This combination makes the portfolio stronger than a standard analyst site because it shows knowledge depth, technical interest, and academic foundation together.
+            </p>
+          </div>
+        </div>
+
+        <div class="three-col">
+          <div class="card glass">
+            <h3>Published Books -<br>3 on Power BI</h3>
+            <div class="pub-grid">
+              <div class="pub-item"><strong>Microsoft Power BI Zero to Hero in 30 Days</strong>Beginner-friendly practical learning roadmap for Power BI.<br><br><a class="small" href="https://amzn.in/d/04goD00u" target="_blank">=> Link</a></div>
+              <div class="pub-item"><strong>Microsoft Power BI Practice Workbook</strong>Hands-on exercises designed to improve dashboard and reporting skills.<br><br><a class="small" href="https://amzn.in/d/0grjUNDL" target="_blank">=> Link</a></div>
+              <div class="pub-item"><strong>Power BI Interview Questions & Answers – Get Hired Fast</strong>Focused on interview preparation, examples, and practical confidence building.<br><br><a class="small" href="https://amzn.in/d/0bxCc36i" target="_blank">=> Link</a></div>
+            </div>
+          </div>
+
+          <div class="card glass">
+            <h3>Published Books -<br>3 on AI Prompt Engineering</h3>
+            <div class="github-grid">
+              <div class="github-card"><strong>ChatGPT Prompt Engineering: Learn, Earn & Automate in Just 30 Days</strong>With 100+ Ready-to-Use Prompts for Freelancing, Marketing, Resume Writing, Coding & More!.<br><br><a class="small" href="https://amzn.in/d/0gpmQxWj" target="_blank">=> Link</a></div>
+              <div class="github-card"><strong>30-Day AI Prompt Challenge Workbook</strong>Daily Exercises to Master Prompt Engineering and Unlock AI’s Full Potential<br><br><a class="small" href="https://amzn.in/d/02TzgqLT" target="_blank">=> Link</a></div>
+              <div class="github-card"><strong>Prompt Power: Freelance Your Way to Wealth</strong>200+ AI-Ready Prompts to Win Clients, Boost Income, and Work from Anywhere<br><br><a class="small" href="https://amzn.in/d/01GPOBcv" target="_blank">=> Link</a></div>
+            </div>
+          </div>
+
+          <div class="card glass">
+            <h3>Education</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <strong>Master of Technology (Information Technology)</strong>
+                <small>Indian Institute of Information Technology, Allahabad | 2010 – 2012</small>
+              </div>
+              <div class="timeline-item">
+                <strong>Bachelor of Technology (Information Technology)</strong>
+                <small>Bundelkhand Institute of Engineering & Technology, Jhansi | 2005 – 2009</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Resume Download</h2>
+            <p>
+              Add your latest PDF resume file inside the same GitHub Pages repository and link it here so recruiters can download it directly.
+            </p>
+          </div>
+        </div>
+
+        <div class="resume-card glass">
+          <div>
+            <h3>Rahul Dekar — Data Analyst Resume</h3>
+            <p class="muted">Power BI, Excel, SQL, Dashboard Reporting, Business Intelligence, Data Visualization</p>
+          </div>
+          <a class="btn btn-primary" href="assets/pdf/RahulDekar_CV.pdf" download>Download Resume PDF</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Contact Me</h2>
+            <p>
+              I am open to Data Analyst, Power BI Developer, reporting, business intelligence, and remote analytics opportunities. Feel free to reach out for hiring, freelance dashboard work, or collaborations.
+            </p>
+          </div>
+        </div>
+
+        <div class="contact-grid">
+          <div class="card glass">
+            <h3>Direct Contact</h3>
+            <div class="contact-list">
+              <div class="contact-item">
+                <div class="icon">✉</div>
+                <div><strong>Email</strong>dekar.rahul@gmail.com</div>
+              </div>
+              <div class="contact-item">
+                <div class="icon">📞</div>
+                <div><strong>Phone</strong>+91-9616379558</div>
+              </div>
+              <div class="contact-item">
+                <div class="icon">📍</div>
+                <div><strong>Location</strong>Lucknow, India</div>
+              </div>
+              <div class="contact-item">
+                <div class="icon">💼</div>
+                <div><strong>LinkedIn</strong><a href="https://www.linkedin.com/in/rahul-dekar" target="_blank" rel="noreferrer">linkedin.com/in/rahul-dekar</a></div>
+              </div>
+              <div class="contact-item">
+                <div class="icon">🌐</div>
+                <div><strong>GitHub</strong><a href="https://github.com/rahuldekar/rahuldekar.github.io" target="_blank" rel="noreferrer">github.com/rahuldekar/rahuldekar.github.io</a></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-box">
+  <h2>Send a Message</h2>
+  <p>
+    Interested in Power BI dashboards, data analysis projects, freelance work,
+    or collaboration? Send me a message and I will get back to you soon.
+  </p>
+
+  <form
+    action="https://formspree.io/f/xbdzdoqy"
+    method="POST"
+    class="contact-form"
+  >
+    <div class="form-row">
+      <input type="text" name="name" placeholder="Your name" required />
+      <input type="email" name="email" placeholder="Your email" required />
+    </div>
+
+    <input type="text" name="subject" placeholder="Subject" required />
+
+    <textarea
+      name="message"
+      rows="6"
+      placeholder="Tell me about your requirement"
+      required
+    ></textarea>
+
+    <button type="submit" class="send-btn">Send Message</button>
+  </form>
+</div>
+		  
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-wrap">
+      <div>© <span id="year"></span> Rahul Dekar. Built for a modern Data Analyst portfolio.</div>
+      <a class="small" href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    const body = document.body;
+    const themeBtn = document.getElementById('themeBtn');
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    const year = document.getElementById('year');
+
+    year.textContent = new Date().getFullYear();
+
+    const savedTheme = localStorage.getItem('rahul-theme');
+    if (savedTheme === 'light') {
+      body.classList.add('light');
+      themeBtn.textContent = '☀️';
+    }
+
+    themeBtn.addEventListener('click', () => {
+      body.classList.toggle('light');
+      const isLight = body.classList.contains('light');
+      themeBtn.textContent = isLight ? '☀️' : '🌙';
+      localStorage.setItem('rahul-theme', isLight ? 'light' : 'dark');
+    });
+
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    const sections = document.querySelectorAll('section[id]');
+    const links = document.querySelectorAll('.nav-links a');
+
+    function activateNav() {
+      let current = 'home';
+      sections.forEach(section => {
+        const top = section.offsetTop - 120;
+        if (window.scrollY >= top) current = section.getAttribute('id');
+      });
+      links.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+      });
+    }
+
+    window.addEventListener('scroll', activateNav);
+    activateNav();
+  </script>
+</body>
+</html>
